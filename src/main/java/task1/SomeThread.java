@@ -6,7 +6,7 @@ public class SomeThread extends Thread {
 
     public SomeThread(String name, String description, int delay) {
         setName(name);
-        setPriority(Thread.MIN_PRIORITY);
+        setPriority(2);
         this.description = description;
         this.delay = delay;
     }
@@ -22,6 +22,5 @@ public class SomeThread extends Thread {
                 interrupt();
             }
         }
-
     }
 }

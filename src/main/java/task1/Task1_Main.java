@@ -6,7 +6,7 @@ import java.time.temporal.ChronoUnit;
 public class Task1_Main {
     public static void main(String[] args) {
         final int DELAY = 15_000;
-        System.out.println("\n\tЗадача 1. Межпоточный диалог\n");
+        System.out.println("\u001b[32m" + "\n\tЗадача 1. Межпоточный диалог\n");
 
         Thread timer = new Thread(() -> {
             while (!Thread.currentThread().isInterrupted()) {
@@ -14,7 +14,7 @@ public class Task1_Main {
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    Thread.currentThread().interrupt();
                 }
             }
         });
@@ -26,7 +26,6 @@ public class Task1_Main {
         Thread t4 = new Thread(tg, new SomeThread("Кулинар", "варит суп", 2000));
 
         timer.setPriority(Thread.MAX_PRIORITY);
-        timer.setDaemon(true);
 
         timer.start();
         t1.start();
@@ -40,5 +39,6 @@ public class Task1_Main {
             e.printStackTrace();
         }
         tg.interrupt();
+        timer.interrupt();
     }
 }
