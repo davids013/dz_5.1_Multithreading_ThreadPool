@@ -1,5 +1,6 @@
 import task1.Task1_Main;
 import task2.Task2_Main;
+import task3.Task3_Main;
 
 public class Main {
     public static void main(String[] args) {
@@ -8,5 +9,6 @@ public class Main {
                 \tЛекция 5.1. Работа с потоками""");
         Task1_Main.main(null);
         Task2_Main.main(null);
+        Task3_Main.main(null);
     }
 }
